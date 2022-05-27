@@ -38,6 +38,7 @@ class BoardFragment : Fragment() {
         binding.viewPager.adapter = adapter
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner) {
             activity?.finish()
+            //dsad
         }
         binding.skipped.setOnClickListener {
             findNavController().navigateUp()
