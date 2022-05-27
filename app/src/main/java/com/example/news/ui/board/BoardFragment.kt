@@ -39,6 +39,8 @@ class BoardFragment : Fragment() {
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner) {
             activity?.finish()
             //dsad
+            //dsad
+            //dsad
         }
         binding.skipped.setOnClickListener {
             findNavController().navigateUp()
