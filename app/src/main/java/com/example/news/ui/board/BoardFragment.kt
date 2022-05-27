@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import android.widget.Adapter
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.example.news.R
 import com.example.news.databinding.ActivityMainBinding
 import com.example.news.databinding.FragmentBoardBinding
 import com.example.news.databinding.FragmentNewsBinding
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+import me.relex.circleindicator.CircleIndicator
+import me.relex.circleindicator.CircleIndicator3
 
 class BoardFragment : Fragment() {
 
@@ -25,6 +28,8 @@ class BoardFragment : Fragment() {
     ): View {
         binding = FragmentBoardBinding.inflate(inflater, container, false)
         return binding.root
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,6 +43,9 @@ class BoardFragment : Fragment() {
             findNavController().navigateUp()
 
         }
+        binding.viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        val indicator : CircleIndicator3? = activity?.findViewById<CircleIndicator3>(R.id.circle)
+        indicator?.setViewPager(binding.viewPager)
 
     }
 

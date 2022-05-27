@@ -13,6 +13,7 @@ import com.example.news.databinding.ItemBoardBinding
 class BoardAdapter(val  navController: NavController) :
     RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
 
+
 private val image= arrayListOf(R.drawable.img,R.drawable.img_1,R.drawable.img_2)
     private val list = arrayListOf("Hello","Привет","Салам")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
