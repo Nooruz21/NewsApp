@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.news.R
 import com.example.news.databinding.ItemNewsBinding
 import com.example.news.models.News
+import java.text.SimpleDateFormat
 
 class NewsAdapter :
     RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
@@ -37,6 +38,7 @@ class NewsAdapter :
 
         }
 
+
     }
 
     override fun getItemCount() = list.size
@@ -44,6 +46,7 @@ class NewsAdapter :
         news?.let {
             list.add(0, it)
             notifyItemInserted(list.indexOf(news))
+
         }
 
     }
@@ -67,9 +70,12 @@ class NewsAdapter :
                 onClick?.invoke(news)
             }
             itemView.setOnLongClickListener {
-                onLongClick?.invoke(adapterPosition)// учесть и не забыть!!!!
+                onLongClick?.invoke(adapterPosition)
                 return@setOnLongClickListener true
             }
+
+
+
         }
     }
 

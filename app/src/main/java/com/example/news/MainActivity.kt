@@ -5,7 +5,6 @@ import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -40,7 +39,11 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        navController.navigate(R.id.boardFragment)
+        if (!Prefs(this).isShown()){
+            navController.navigate(R.id.boardFragment)
+        }
+
+
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             val fragments = arrayOf(

@@ -1,19 +1,20 @@
 package com.example.news.ui.home
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
-import android.system.Os.rename
+
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.news.R
 import com.example.news.databinding.FragmentHomeBinding
 import com.example.news.models.News
+import java.text.SimpleDateFormat
 
 class HomeFragment : Fragment() {
     private lateinit var adapter: NewsAdapter
@@ -37,6 +38,7 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.fab.setOnClickListener {
@@ -54,6 +56,11 @@ class HomeFragment : Fragment() {
         binding.recyclerView.adapter = adapter
         rename()
         alert()
+
+        val textView: TextView? = activity?.findViewById(R.id.textView)
+        val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val dateString = simpleDateFormat.format(1653799317682)
+        textView?.text = String.format("Date: %s", dateString)
     }
 
     private fun alert() {
@@ -69,7 +76,7 @@ class HomeFragment : Fragment() {
                 //Delete items in RecyclerView**
 
             }
-            dialog.setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
+            dialog.setNegativeButton("Назад") { dialog, _ -> dialog.cancel() }
             dialog.show()
         }
     }

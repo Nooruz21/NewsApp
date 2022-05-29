@@ -28,7 +28,6 @@ class NewsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSave.setOnClickListener {
             save()
-
         }
         rename()
     }
