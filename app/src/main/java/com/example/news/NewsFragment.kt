@@ -1,13 +1,12 @@
 package com.example.news
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.news.databinding.FragmentHomeBinding
 import com.example.news.databinding.FragmentNewsBinding
 import com.example.news.models.News
 
@@ -30,6 +29,7 @@ class NewsFragment : Fragment() {
             save()
         }
         rename()
+
     }
         private fun rename() {
             val editText = arguments?.getString("key1")
@@ -38,7 +38,9 @@ class NewsFragment : Fragment() {
 
     private fun save() {
         val text =binding.editText.text.toString()
-        val news = News(text,System.currentTimeMillis())
+        val news = News(0,text,System.currentTimeMillis())
+        App.database.newsDao().insert(news)
+        App.database.newsDao().update(news)
         val bundle= bundleOf("news" to news)
         parentFragmentManager.setFragmentResult("rk_news",bundle)
         findNavController().navigateUp()

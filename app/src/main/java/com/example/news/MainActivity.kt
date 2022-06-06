@@ -39,9 +39,9 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        if (!Prefs(this).isShown()){
+      //  if (!Prefs(this).isShown())
             navController.navigate(R.id.boardFragment)
-        }
+
 
 
 
@@ -62,10 +62,8 @@ class MainActivity : AppCompatActivity() {
                 supportActionBar?.hide()
             else
                 supportActionBar?.show()
-
-
         }
-        
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

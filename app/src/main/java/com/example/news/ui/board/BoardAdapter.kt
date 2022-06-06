@@ -16,7 +16,7 @@ class BoardAdapter(val context: Context, val navController: NavController) :
     RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
 
     private val text = arrayListOf("Manchester", "Red", "Forever")
-    private val image = arrayListOf(R.drawable.img, R.drawable.img_1, R.drawable.img_2)
+    private val image = arrayListOf(R.raw.animate1,R.raw.animate2,R.raw.animate3)
     private val list = arrayListOf("Hello", "Привет", "Салам")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -40,7 +40,7 @@ class BoardAdapter(val context: Context, val navController: NavController) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             binding.textTittle.text = list[position]
-            binding.imageView.setImageResource(image[position])
+           binding.imageView.setAnimation(image[position])
             binding.textDesc.text=text[position]
             if (position == list.lastIndex) {
                 binding.btnStart.visibility = View.VISIBLE

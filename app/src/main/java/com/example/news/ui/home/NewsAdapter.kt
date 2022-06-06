@@ -9,6 +9,7 @@ import com.example.news.R
 import com.example.news.databinding.ItemNewsBinding
 import com.example.news.models.News
 import java.text.SimpleDateFormat
+import java.util.*
 
 class NewsAdapter :
     RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
@@ -41,6 +42,7 @@ class NewsAdapter :
 
     }
 
+
     override fun getItemCount() = list.size
     fun addItem(news: News?) {
         news?.let {
@@ -55,10 +57,19 @@ class NewsAdapter :
         return list[it]
 
     }
+    fun getTodayDate(): String {
+        return SimpleDateFormat("h:mm, dd MMM yyyy", Locale.getDefault()).format(Date())
+    }
 
     fun deleteItemsAndNotifyAdapter(pos: Int) {
         list.removeAt(pos)
         notifyItemRemoved(pos)
+    }
+
+    fun addItems(list: List<News>) {
+        this.list.clear()
+        this.list.addAll(list)
+        notifyDataSetChanged()
     }
 
 
@@ -69,6 +80,7 @@ class NewsAdapter :
             itemView.setOnClickListener {
                 onClick?.invoke(news)
             }
+            binding.textView.text = getTodayDate()
             itemView.setOnLongClickListener {
                 onLongClick?.invoke(adapterPosition)
                 return@setOnLongClickListener true
