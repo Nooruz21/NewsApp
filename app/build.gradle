@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -57,4 +58,7 @@ dependencies {
 
 //lotti
     implementation "com.airbnb.android:lottie:3.4.0"
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:30.1.0')
+    implementation 'com.google.firebase:firebase-auth-ktx'
 }
