@@ -7,16 +7,32 @@
     android:padding="16dp"
     tools:context=".ui.auth.AuthFragment">
 
-   <EditText
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:inputType="phone"
-       android:hint="Введите номер"
-       android:id="@+id/editPhone"/>
-    <Button
+    <EditText
+        android:id="@+id/editPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Введите номер"
+        android:inputType="phone" />
+    <EditText
+        android:id="@+id/editCode"
+        android:hint="Введите код из СМС"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <Button
         android:id="@+id/btnContinue"
-        android:text="Продолжить"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Продолжить" />
+    <Button
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+
+
 
 </LinearLayout>
