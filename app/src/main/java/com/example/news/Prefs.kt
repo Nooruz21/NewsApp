@@ -24,4 +24,8 @@ class Prefs(context: Context) {
     fun getName(): String? {
         return preferences.getString("name", null)
     }
+
+    fun saveRegisterFragment() {
+        r
+    }
 }
